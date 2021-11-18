@@ -1,30 +1,32 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import About from './components/About';
+import Home from './components/Home';
 import List from './components/List';
 import styled from 'styled-components';
 
 function App() {
   return (
-    <BrowserRouter>
-      <StyledBase>
-        <StyledMenu>
-          <li className="menu-item">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="menu-item">
-            <Link to="/list">List</Link>
-          </li>
-        </StyledMenu>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/list">
-            <List />
-          </Route>
-        </Switch>
-      </StyledBase>
-    </BrowserRouter>
+    <StyledBase>
+      <StyledMenu>
+        <li className="menu-item">
+          <Link to="/about">About</Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/list">List</Link>
+        </li>
+      </StyledMenu>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/list">
+          <List />
+        </Route>
+      </Switch>
+    </StyledBase>
   );
 }
 
