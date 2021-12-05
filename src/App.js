@@ -2,6 +2,7 @@ import { Link, Route, Switch } from 'react-router-dom'
 import About from './components/About';
 import Home from './components/Home';
 import List from './components/List';
+import Member from './components/Member';
 import NotFound from './components/NotFound';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -32,7 +33,10 @@ function App() {
         <Route path="/list">
           <List />
         </Route>
-        <Route path="*">
+        <Route path="/member/:memberId">
+          <Member />
+        </Route>
+        <Route>
           <NotFound location={location} />
         </Route>
       </Switch>
