@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const About = () => {
   const match = useRouteMatch();
+  console.log(match.url, match.path);
   return (
     <>
       <Helmet>
@@ -21,6 +22,9 @@ const About = () => {
       </div>
       <Switch>
         <Route path={`${match.path}/history`}>
+          <Helmet>
+            <title>About | History</title>
+          </Helmet>
           <History />
         </Route>
       </Switch>
