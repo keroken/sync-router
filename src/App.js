@@ -2,12 +2,16 @@ import { Link, Route, Switch } from 'react-router-dom'
 import About from './components/About';
 import Home from './components/Home';
 import List from './components/List';
+import NotFound from './components/NotFound';
 import styled from 'styled-components';
 
 function App() {
   return (
     <StyledBase>
       <StyledMenu>
+        <li className="menu-item">
+          <Link to="/">Home</Link>
+        </li>
         <li className="menu-item">
           <Link to="/about">About</Link>
         </li>
@@ -24,6 +28,9 @@ function App() {
         </Route>
         <Route path="/list">
           <List />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </StyledBase>
