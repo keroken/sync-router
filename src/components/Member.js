@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 
 const Member = () => {
   const { memberId } = useParams();
-  const selectedMember = members.filter(member => member.id === memberId)[0];
+  const selectedMember = members.find(member => member.id === memberId);
 
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
