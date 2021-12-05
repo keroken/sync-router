@@ -5,7 +5,7 @@ const List = () => {
     <div>
       <h2>This is List</h2>
       {members.map(member => (
-        <li>
+        <li key={member.id}>
           <span>{member.name}</span>
           <span>{member.age}</span>
         </li>
