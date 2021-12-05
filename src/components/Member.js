@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, useParams, useLocation } from 'react-router-dom';
 import { members } from '../memberData';
+import { Helmet } from 'react-helmet';
 
 const Member = () => {
   const { memberId } = useParams();
@@ -12,16 +13,21 @@ const Member = () => {
 
   if (selectedMember) {
     return (
-      <section>
-        {!isLoading ? (
-          <>
-            <h2>{selectedMember.name}</h2>
-            <p>age: {selectedMember.age}</p>
-          </>
-        ) : (
-          <p>Loading....</p>
-        )}
-      </section>
+      <>
+        <Helmet>
+          <title>Member List | {selectedMember.name}</title>
+        </Helmet>
+        <section>
+          {!isLoading ? (
+            <>
+              <h2>{selectedMember.name}</h2>
+              <p>age: {selectedMember.age}</p>
+            </>
+          ) : (
+            <p>Loading....</p>
+          )}
+        </section>
+      </>
     );
   }
   
