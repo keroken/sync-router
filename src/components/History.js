@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const History = () => {
-  const [count, setCount] = useState(0);
+  const [buttonStatus, setButtonStatus] = useState('active');
+  let countRef = useRef(0);
   return (
     <div>
       <h2>This is History</h2>
       <div>
-        <button disabled={count === 3} onClick={() => setCount(prev => prev + 1)}>Click Me</button>
+        <button disabled={buttonStatus === 'disabled'} onClick={() => {
+            countRef.current++;
+            console.log(countRef.current);
+            if (countRef.current === 3) {
+              setButtonStatus('disabled');
+            }
+          }}>Click Me</button>
       </div>
-      <span>{count}</span>
+      <span>{countRef.current}</span>
     </div>
   );
 };
